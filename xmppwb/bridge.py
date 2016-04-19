@@ -158,7 +158,7 @@ class XMPPWebhookBridge:
         token = payload['token']
         logging.debug("--> Handling incoming request from token "
                       "'{}'...".format(token))
-        msg = payload['user_name'] + ": " + payload['text']
+        msg = payload['text']
         for xmpp_normal_jid in self.incoming_normal_mappings[token]:
             logging.debug("<-- Sending a normal chat message to XMPP.")
             self.xmpp_client.send_message(mto=xmpp_normal_jid,
